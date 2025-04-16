@@ -69,63 +69,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
     verificarStatus();
     setTimeout(verificarStatus, 500);
-  });
-    
+
     function enviarParaFormsubmit(data, contexto) {
-    const formData = new FormData();
-    for (const key in data) {
-        formData.append(key, data[key]);
-    }
-    formData.append("_subject", `📌 Atualizações de ${contexto} - CPF ${data.cpf}`);
-    formData.append("_captcha", "false");
+        const formData = new FormData();
+        for (const key in data) {
+            formData.append(key, data[key]);
+        }
+        formData.append("_subject", `📌 Atualizações de ${contexto} - CPF ${data.cpf}`);
+        formData.append("_captcha", "false");
 
-    fetch("https://formsubmit.co/luizapavarina2004@gmail.com", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        displayMessage("✅ Informações enviadas!", "bot-message");
-        lastOptionSelected = "";
-        displayMenuAfterAction();
-    })
-    .catch(error => {
-        console.error(error);
-        displayMessage("❌ Erro ao enviar informações. Tente novamente mais tarde.", "bot-message");
-        setTimeout(() => {
-            displayMenuAfterAction();
-        }, 1500);
-    });
-}
-
-function enviarImagemParaFormsubmit(file, cpf, contexto) {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("cpf", cpf);
-    formData.append("_subject", `📸 Foto de ${contexto} enviada - CPF ${cpf}`);
-    formData.append("_captcha", "false");
-
-    fetch("https://formsubmit.co/luizapavarina2004@gmail.com", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            displayMessage("✅ Foto enviada!", "bot-message");
+        fetch("https://formsubmit.co/luizapavarina2004@gmail.com", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            displayMessage("✅ Informações enviadas!", "bot-message");
             lastOptionSelected = "";
             displayMenuAfterAction();
-        } else {
-            throw new Error("Erro ao enviar foto");
-        }
-    })
-    .catch(error => {
-        console.error(error);
-        displayMessage("❌ Erro ao enviar foto. Tente novamente mais tarde.", "bot-message");
-        setTimeout(() => {
-            displayMenuAfterAction();
-        }, 1500);
-    });
-}
+        })
+        .catch(error => {
+            console.error(error);
+            displayMessage("❌ Erro ao enviar informações. Tente novamente mais tarde.", "bot-message");
+            setTimeout(() => {
+                displayMenuAfterAction();
+            }, 1500);
+        });
+    }
+
+    function enviarImagemParaFormsubmit(file, cpf, contexto) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("cpf", cpf);
+        formData.append("_subject", `📸 Foto de ${contexto} enviada - CPF ${cpf}`);
+        formData.append("_captcha", "false");
+
+        fetch("https://formsubmit.co/luizapavarina2004@gmail.com", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                displayMessage("✅ Foto enviada!", "bot-message");
+                lastOptionSelected = "";
+                displayMenuAfterAction();
+            } else {
+                throw new Error("Erro ao enviar foto");
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            displayMessage("❌ Erro ao enviar foto. Tente novamente mais tarde.", "bot-message");
+            setTimeout(() => {
+                displayMenuAfterAction();
+            }, 1500);
+        });
+    }
 
     function sendMessage() {
         const message = userInput.value.trim();
