@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1d994b">
+  <title>ChatBot Oliveira Transportes</title>
+  
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <link rel="stylesheet" href="style.css?sw=v6.1">
+  
+  <link rel="icon" type="image/png" href="icons/icon-192.png?sw=v6.1">
+  
+  <meta name="app-version" content="v6.1">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="status-indicator" id="status-indicator">
+      <span id="status-dot" class="status-dot"></span>
+      <span id="status-text">Verificando status...</span>
+    </div>
+    <div class="chat-box" id="chat-box">
+      <div class="message bot-message">
+        Olá! Sou o assistente virtual da Oliveira Transportes. Digite seu CPF, somente em números.
+      </div>
+    </div>
+    <div class="input-container" id="chat-form">
+      <input type="text" id="user-input" placeholder="Digite aqui..." autocomplete="off">
+      <button type="button" id="attach-button" class="attach-btn" title="Anexar foto">+</button>
+      <input type="file" id="file-input" accept="image/*" style="display: none;">
+      <button type="button" id="send-button">Enviar</button>
+    </div>
+  </div>
+
+  <script src="script.js?sw=v6.1"></script>
+</body>
+</html>
