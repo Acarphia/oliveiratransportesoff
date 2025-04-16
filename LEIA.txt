@@ -1,0 +1,32 @@
+📄 LEIA-ME
+Este é o sistema de chatbot da Oliveira Transporte.
+Os funcionários podem consultar e enviar informações relacionadas ao transporte de cargas, como embarque, rota, desembarque e pós-viagem.
+
+🧠 BANCO DE DADOS (dados dos motoristas):
+Os dados dos motoristas estão cadastrados diretamente no arquivo script.js, na variável usersData.
+📍 const usersData = {
+    "15347693665": {
+        nome: "Luiza",
+        tipoCarga: "Alimentos.",
+        embarqueLocal: "Uberlândia.",
+        embarqueResponsavel: "Eduarda.",
+        desembarqueLocal: "Londrina.",
+        desembarqueResponsavel: "Augusto.",
+        paradasProgramadas: "Sem paradas."
+    }
+};
+Adicione um novo CPF dentro do objeto usersData, com o seguinte modelo:
+"CPF_DO_MOTORISTA": {
+    nome: "NOME_DO_MOTORISTA",
+    tipoCarga: "TIPO DA CARGA",
+    embarqueLocal: "LOCAL DE EMBARQUE",
+    embarqueResponsavel: "RESPONSÁVEL PELO EMBARQUE",
+    desembarqueLocal: "LOCAL DE DESEMBARQUE",
+    desembarqueResponsavel: "RESPONSÁVEL PELO DESEMBARQUE",
+    paradasProgramadas: "PARADAS PROGRAMADAS (ou 'Sem paradas')"
+}
+⚠️ Lembre-se: o CPF é a chave principal para identificar o motorista!
+
+📬 FORMULÁRIOS E ENVIO DE INFORMAÇÕES
+O sistema envia informações e fotos através do FormSubmit, usando formulários dinâmicos.
+Nenhum dado fica salvo no servidor — tudo é enviado diretamente para o e-mail especificado no código.
